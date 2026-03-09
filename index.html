@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Tuan Minh Nguyen</title>
+    <script type='module' defer>
+
+const res = await fetch('https://pinned.berrysauce.dev/get/Minh7080');
+const pinned = await res.json();
+const div = document.querySelector('div');
+
+console.log(pinned);
+
+const pinnedElements = pinned.map(pin => {
+  const li = document.createElement('li');
+  const a = document.createElement('a');
+  const h3 = document.createElement('h3');
+  const p = document.createElement('p');
+
+  a.target = '_blank';
+  a.innerText = pin.name;
+  a.href = 'https://www.github.com/Minh7080/' + pin.name;
+  h3.append(a);
+  p.innerText = pin.description;
+  li.append(h3);
+  li.append(p);
+  return li;
+});
+
+document.querySelector('ul').append(...pinnedElements);
+
+    </script>
+  </head>
+  <body>
+    <h1>Tuan Minh Nguyen</h1>
+    <p>CS student studying at UNSW</p>
+    <h2>Projects</h2>
+    <ul>
+
+    </ul>
+  </body>
+</html>
